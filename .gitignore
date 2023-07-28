@@ -1,1 +1,4 @@
 *.swp
+
+hello.wasm
+hello.wat

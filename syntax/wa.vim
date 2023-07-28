@@ -46,7 +46,7 @@ endif
 syn case match
 
 syn keyword     waDirective         import
-syn keyword     waDeclaration       var const type
+syn keyword     waDeclaration       global var const type
 syn keyword     waDeclType          struct interface
 
 hi def link     waDirective         Statement
@@ -77,10 +77,10 @@ hi def link     waUnsignedInts      Type
 hi def link     waFloats            Type
 hi def link     waComplexes         Type
 
-" Treat fn specially: it's a declaration at the start of a line, but a type
+" Treat func specially: it's a declaration at the start of a line, but a type
 " elsewhere. Order matters here.
-syn match       waType              /\<fn\>/
-syn match       waDeclaration       /^fn\>/
+syn match       waType              /\<func\>/
+syn match       waDeclaration       /^func\>/
 
 " Predefined functions and values
 syn keyword     waBuiltins          append cap close complex copy delete imag len
@@ -197,7 +197,7 @@ hi def link     waExtraType         Type
 hi def link     waSpaceError        Error
 
 " Search backwards for a global declaration to start processing the syntax.
-"syn sync match waSync grouphere NONE /^\(const\|var\|type\|fn\)\>/
+"syn sync match waSync grouphere NONE /^\(const\|var\|type\|func\)\>/
 
 " There's a bug in the implementation of grouphere. For now, use the
 " following as a more expensive/less precise workaround.
